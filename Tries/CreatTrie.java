@@ -23,10 +23,24 @@ public class CreatTrie {
         }
         curr.eow = true;
     }
+
+    public static boolean search(String key){
+        Node curr = root;
+        for(int level=0; level<key.length(); level++){
+            int idx=key.charAt(level) - 'a';
+            if(curr.Children[idx] == null){
+                return false;
+            }
+            curr = curr.Children[idx];
+        }
+        return curr.eow == true;
+    }
     public static void main(String[] args) {
         String words[] = {"the", "a", "there", "their", "any", "thee"};
         for(int i=0; i<words.length; i++){
             insert(words[i]);
         }
+        System.out.println(search("the")); // true
+        System.out.println(search("these")); // false
     }
 }
