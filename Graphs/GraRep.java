@@ -1,3 +1,5 @@
+//Graph representation using adjacency list
+
 import java.util.*;
 
 public class GraRep{
